@@ -1,0 +1,6 @@
+name = "stateless-mcp"
+main = "main.ts"
+compatibility_date = "2025-06-19"
+route.custom_domain = true
+route.pattern = "stateless-mcp.wilmake.com"
+dev.port = 3000
