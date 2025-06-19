@@ -1,6 +1,8 @@
 ## Stateless MCP Example
 
-This showcases a stateless MCP server
+This showcases a stateless MCP server.
+
+Try it out using `npx @modelcontextprotocol/inspector`
 
 ## Test it
 
@@ -10,19 +12,19 @@ Then you can test this with a simple HTTP client:
 
 ```bash
 # Test initialization
-curl -X POST http://localhost:3000/message \
+curl -X POST http://localhost:3000/mcp \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-03-26","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
 
 # Test ping
-curl -X POST http://localhost:3000/message \
+curl -X POST http://localhost:3000/mcp \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{"jsonrpc":"2.0","id":2,"method":"ping"}'
 
 # Test tools list
-curl -X POST http://localhost:3000/message \
+curl -X POST http://localhost:3000/mcp \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
   -d '{"jsonrpc":"2.0","id":3,"method":"tools/list"}'

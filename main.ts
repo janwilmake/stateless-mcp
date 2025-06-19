@@ -99,7 +99,7 @@ async function handleMCPEndpoint(request) {
       }
 
       const jsonRpcMessage = await request.json();
-
+      console.log({ jsonRpcMessage });
       // Check if this is a response or notification
       if ("result" in jsonRpcMessage || "error" in jsonRpcMessage) {
         // This is a JSON-RPC response - accept it
@@ -237,11 +237,14 @@ async function handleJSONRPCMessage(message) {
 
 // Core Protocol Handlers
 function handleInitialize(id, params) {
+  console.log({ params });
   return {
     jsonrpc: "2.0",
     id,
     result: {
-      protocolVersion: "2025-06-18",
+      // "2025-06-18" for newest features, not supported yet by inspector
+
+      protocolVersion: "2025-03-26",
       capabilities: {
         tools: { listChanged: false },
         resources: { subscribe: false, listChanged: false },
