@@ -32,6 +32,6 @@ curl -X POST http://localhost:3000/mcp \
 
 ## Resources:
 
-- **MCP Specification**: https://uithub.com/modelcontextprotocol/modelcontextprotocol/tree/main/docs/specification/2025-03-26/basic?lines=false
+- **MCP Specification**: https://uithub.com/modelcontextprotocol/modelcontextprotocol/tree/main/docs/specification/2025-06-18?lines=false
 - **New stateless protocol**: https://github.com/modelcontextprotocol/modelcontextprotocol/pull/206
 - **Typescript JSON RPC methods**: https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/refs/heads/main/schema/2025-03-26/schema.ts or new https://uithub.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-06-18/schema.ts
