@@ -1,3 +1,6 @@
+// "2025-06-18" for newest features, not supported yet by inspector
+const VERSION = "2025-03-26";
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -26,7 +29,7 @@ export default {
           name: "cloudflare-mcp-server",
           title: "Cloudflare MCP Server",
           version: "1.0.0",
-          protocol: "2025-06-18",
+          protocol: VERSION,
           transport: "streamable-http",
           endpoint: "/mcp",
         }),
@@ -51,7 +54,7 @@ async function handleMCPEndpoint(request) {
   try {
     // Check for MCP-Protocol-Version header
     const protocolVersion = request.headers.get("MCP-Protocol-Version");
-    if (protocolVersion && protocolVersion !== "2025-06-18") {
+    if (protocolVersion && protocolVersion !== VERSION) {
       return new Response("Unsupported MCP protocol version", {
         status: 400,
         headers,
@@ -242,9 +245,7 @@ function handleInitialize(id, params) {
     jsonrpc: "2.0",
     id,
     result: {
-      // "2025-06-18" for newest features, not supported yet by inspector
-
-      protocolVersion: "2025-03-26",
+      protocolVersion: VERSION,
       capabilities: {
         tools: { listChanged: false },
         resources: { subscribe: false, listChanged: false },
@@ -537,7 +538,7 @@ async function handleResourceRead(id, params) {
         title: "Cloudflare MCP Server",
         version: "1.0.0",
         runtime: "Cloudflare Workers",
-        protocol: "MCP 2025-06-18",
+        protocol: "MCP " + VERSION,
         capabilities: [
           "tools",
           "resources",
@@ -782,7 +783,6 @@ async function handlePromptGet(id, params) {
                 type: "text",
                 text: `System Status Report:
 - Server: Cloudflare MCP Server v1.0.0
-- Protocol: MCP 2025-06-18
 - Runtime: Cloudflare Workers
 - Status: Online and operational
 - Current Time: ${now.toISOString()}
